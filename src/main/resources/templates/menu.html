@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Menu</title>
+</head>
+<body>
+<div th:each="menu : ${menus}">
+    <!-- 날짜 출력 -->
+    <div th:text="${menu.date}"></div>
+    <!-- 메뉴 항목 출력 -->
+    <div th:each="item : ${menu.menuItems}">
+        <div th:text="${item.value}"></div>
+    </div>
+</div>
+</body>
+</html>
