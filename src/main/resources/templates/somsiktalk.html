@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link th:href="@{/css/bootstrap.min.css}"
+        href="../css/bootstrap.min.css" rel="stylesheet">
+  <link th:href="@{/css/somsiktalk.css}" href="../css/somsiktalk.css" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <script type="module" src="../js/somsiktalk.js"></script>
+  <script type="module" th:src="@{../js/somsiktalk.js}"></script>
+
+</head>
+<body>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<div class="chatbox" id="app">
+  <div class="chatbox__header">
+    <div class="chatbox__headerText">솜식봇</div>
+  </div>
+  <div class="chatbox__messages">
+    <div class="chatbox__messageBox" v-for="message in messages" :class="{ 'chatbox__messageBox--primary': message.primary }">
+      <div class="chatbox__message" :class="{ 'chatbox__message--primary': message.primary }" :style="{ background: message.primary ? chatColor : 'inital' }">{{ message.text }}
+        <div class="chatbox__tooltip chatbox__tooltip--left">{{ message.date }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="chatbox__inputPanel"><input class="chatbox__input" v-model="newMessage" @keyup.enter="send" placeholder="Aa" />
+    <div class="chatbox__tooltip chatbox__tooltip--bottom" :style="{ opacity: newMessage.length &gt; 2 &amp;&amp; !this.tutorialSeen ? 0.7 : 0 }">Press enter to send the message</div>
+    <!--.chatbox__button +-->
+  </div>
+</div>
+<script>
+new Vue({
+  el: "#app",
+  data: {
+    chatColor: "#0084ff",
+    colorPanelShown: false,
+    newMessage: "",
+    tutorialSeen: false,
+    messages: [
+      { id: 0, text: "안녕하세요! 솜식봇입니다!", primary: false, date: moment().format("hh:mm") },
+      { id: 0, text: "오늘 드신 학식을 기반으로 저녁을 추천 드려요!", primary: false, date: moment().format("hh:mm") },
+    ]
+  },
+  methods: {
+    send: function () {
+      if (this.newMessage.length > 0) {
+        let lastId = this.messages[this.messages.length - 1];
+        this.messages.push({
+          id: lastId + 1,
+          text: this.newMessage,
+          primary: true,
+          date: moment().format("hh:mm")
+        });
+        this.chatGPT();
+
+        this.newMessage = "";
+        this.tutorialSeen = true;
+      }
+    },
+    chatGPT: async function () {
+      const api_key = "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";
+      const word = this.newMessage;
+      console.log("word:", word);
+
+      const requestOptions = {
+        method: "POST",
+        headers: {
+          Authorization: "Bearer " + api_key,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          model: "gpt-3.5-turbo",
+          temperature: 0.8,
+          max_tokens: 150,
+          top_p: 1,
+          frequency_penalty: 0.5,
+          presence_penalty: 0.5,
+          stop: ["Human"],
+          messages: [
+            {
+              role: "user",
+              content: `Considering I live in Korea, I would like to get dinner recommendations based on my lunch. I had ${word}. Please answer in Korean. And recommend only one dish. Don't recommend the same menu as my lunch. Also, keep your answers short (50 characters or less) and use a friendly tone. Write your answer in Korean only. ()Do not use parentheses. Please use proper Korean grammar. Tell me how my lunch relates to your recommendation. Be sure to include the name of my lunch and why you would recommend it for dinner. At the end of your four sentences, be sure to add one emoji that is most relevant to your recommendations.`
+            },
+          ],
+        }),
+      };
+
+      try {
+        const response = await fetch(
+          "https://api.openai.com/v1/chat/completions",
+          requestOptions
+        );
+
+        const data = await response.json();
+
+        if (response.ok) {
+          const aiResponse = data.choices[0].message.content;
+          this.messages.push({
+            id: this.messages.length,
+            text: aiResponse,
+            primary: false,
+            date: moment().format("hh:mm"),
+          });
+        } else {
+          console.error("API 호출 중 에러 발생:", data);
+          this.messages.push({
+            id: this.messages.length,
+            text: "OpenAI API 호출 중 오류 발생",
+            primary: false,
+            date: moment().format("hh:mm"),
+          });
+        }
+      } catch (error) {
+        console.error("API 호출 중 에러 발생:", error);
+        this.messages.push({
+          id: this.messages.length,
+          text: "OpenAI API 호출 중 오류 발생",
+          primary: false,
+          date: moment().format("hh:mm"),
+        });
+      }
+    }
+  }
+});
+</script>
+</body>
+</html>

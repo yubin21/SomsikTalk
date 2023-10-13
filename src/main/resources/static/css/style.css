@@ -1,0 +1,126 @@
+body {
+    background-color: #E9EAF1;
+}
+
+/* header */
+.logo {
+    width: 20%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* nav */
+.logo {
+  float: left;
+  color: #fff;
+  font-size: 50px;
+  line-height: 50px;
+  transition: 0.7s all;
+}
+
+/* title */
+.text_subTitle {
+    color: #000;
+    font-family: ChangwonDangamAsac;
+    font-size: 3.125rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.card-title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 1.2em;
+}
+
+.card-title-name {
+
+}
+
+.card-title-profile {
+    width: 20%;
+    padding: 1em;
+}
+
+.card-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    background: white;
+}
+
+.card-desc {
+    flex: 1 1 auto;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-desc p {
+  flex: 1;
+}
+
+@media(min-width: 600px){
+    .card-list {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -1rem;
+    }
+    .card-item {
+        width: 50%;
+        padding: 0 1rem;
+    }
+}
+@media(min-width: 1200px){
+    .card-item {
+        width: 33.33333%;
+    }
+}
+
+.card-list-con {
+    overflow: hidden;
+}
+
+#box {
+  border: 1px solid black;
+  border-radius: 2rem;
+  overflow: hidden;
+  margin: 100px auto;
+  transition: all 0.3s cubic-bezier(0.42, 0.0, 0.58, 1.0);
+}
+
+/*#box * {
+  padding: 10px;
+}*/
+
+
+.btn_y {
+    width: 23.25rem;
+    height: 5.1875rem;
+    flex-shrink: 0;
+    border-radius: 3.4375rem;
+    border: 2px solid #000;
+    background: #FFFF54;
+    box-shadow: 5px 5px 0px 0px #000;
+}
+
+/* font id */
+#font-default-bold {
+    color: #000;
+    font-family: Pretendard;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+}
+
+#font-default-regular {
+    color: #000;
+    font-family: Pretendard;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
