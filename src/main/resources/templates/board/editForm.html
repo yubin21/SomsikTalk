@@ -13,7 +13,7 @@
 </head>
 <header id="topnav">
     <nav>
-        <a href="/"><img src="../../resource/new_logo.svg" class="nav-logo"></a>
+        <a href="/"><img src="../../../resource/new_logo.svg" class="nav-logo"></img></a>
         <ul class="nav-list">
             <li><a href="/menu">이번주 학식</a></li>
             <li><a href="/talk">솜식톡</a></li>
@@ -26,12 +26,12 @@
 <div class="container">
 
     <div class="py-5 text-center">
-        <h2>상품 수정 폼</h2>
+        <h2>솜talk 수정</h2>
     </div>
 
     <form action="item.html" th:action th:object="${item}" method="post">
         <div>
-            <label for="id">상품 ID</label>
+            <label for="id">솜talk ID</label>
             <input type="text" id="id" name="id" class="form-control" th:field="*{id}" readonly>
         </div>
         <div>
@@ -54,13 +54,13 @@
 
         <div class="row">
             <div class="col">
-                <button class="w-100 btn btn-primary btn-lg" type="submit">저장</button>
+                <button class="w-100 btn btn-primary btn-lg" type="submit">수정내용 저장하기</button>
             </div>
             <div class="col">
                 <button class="w-100 btn btn-secondary btn-lg"
                         onclick="location.href='item.html'"
                         th:onclick="|location.href='@{/board/items/{itemId}(itemId=${item.id})}'|"
-                        type="button">취소</button>
+                        type="button">솜보드로 가기</button>
             </div>
         </div>
 
