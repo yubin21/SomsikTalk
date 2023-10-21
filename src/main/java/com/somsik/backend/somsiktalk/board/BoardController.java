@@ -1,7 +1,7 @@
 package com.somsik.backend.somsiktalk.board;
 
-import com.somsik.backend.somsiktalk.domain.item.Item;
-import com.somsik.backend.somsiktalk.domain.item.ItemRepository;
+import com.somsik.backend.somsiktalk.board.entity.Item;
+import com.somsik.backend.somsiktalk.board.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

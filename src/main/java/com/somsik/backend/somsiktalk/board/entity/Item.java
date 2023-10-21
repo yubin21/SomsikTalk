@@ -1,4 +1,4 @@
-package com.somsik.backend.somsiktalk.domain.item;
+package com.somsik.backend.somsiktalk.board.entity;
 
 import lombok.Data;
 

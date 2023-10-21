@@ -3,7 +3,6 @@ package com.somsik.backend.somsiktalk.menu.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.somsik.backend.somsiktalk.config.BaseException;
 import com.somsik.backend.somsiktalk.menu.entity.Menu;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

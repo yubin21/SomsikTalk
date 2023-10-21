@@ -1,5 +1,6 @@
-package com.somsik.backend.somsiktalk.domain.item;
+package com.somsik.backend.somsiktalk.board.repository;
 
+import com.somsik.backend.somsiktalk.board.entity.Item;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
