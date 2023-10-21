@@ -1,0 +1,44 @@
+.content-article {
+    padding-top: 2rem;
+    position: relative;
+    max-width: 1296px;
+    margin: 0 5rem;
+    padding-bottom: 182px;
+    font-family: Pretendard;
+}
+.date-logo {
+    padding-right: 1rem;
+    width: 120px;
+}
+.menu-element {
+    padding-bottom: 2rem;
+}
+.date-tit {
+    padding-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.date-text {
+    margin: 0;
+    font-family: Pretendard;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+}
+.date-content-text {
+    line-height: 1.5;
+    font-size: 1.7rem;
+}
+.menu-text {
+    font-size: 1.2rem;
+    font-weight: 520;
+}
+
+.menu-detail-element {
+    background: white;
+    border: 1px solid black;
+    border-radius: 2rem;
+    padding: 30px;
+}

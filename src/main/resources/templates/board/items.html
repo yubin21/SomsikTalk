@@ -1,0 +1,49 @@
+<!-- 처음 card board 화면 -->
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Somsik Talk</title>
+    <link th:href="@{/css/bootstrap.min.css}"
+          href="../css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/board-style.css}" href="../css/board-style.css" rel="stylesheet">
+    <link th:href="@{/css/style.css}" href="../css/style.css" rel="stylesheet">
+</head>
+<header id="topnav">
+    <nav>
+        <a href="/"><img src="../../resource/new_logo.svg" class="nav-logo"></a>
+        <ul class="nav-list">
+            <li><a href="/menu">이번주 학식</a></li>
+            <li><a href="/talk">솜식톡</a></li>
+            <li><a href="/board/items">솜보드</a></li>
+        </ul>
+    </nav>
+</header>
+<body>
+<div id="container" class="container-btn">
+    <button class="learn-more btn-element"
+            onclick="location.href='addForm.html'"
+            th:onclick="|location.href='@{/board/items/add}'|"
+            type="button">
+    <span class="circle" aria-hidden="true">
+      <span class="icon arrow"></span>
+    </span>
+        <span class="button-text">글 작성하러 가기</span>
+    </button>
+</div>
+<div class="container">
+    <ul class="card-list">
+        <li id="box" class="card-item" th:each="item : ${items}">
+        <span class="card-title">
+            <img class="card-title-profile" src="../resource/profile.svg">
+            <span class="card-title-name" id="font-default-bold" th:text="${item.id + '번째 솜 talk'}">회원id</span>
+        </span>
+            <div class="card-desc" id="font-default-regular">
+                <p th:text="${item.content}"></p>
+            </div>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
+

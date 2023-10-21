@@ -1,16 +1,40 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Menu</title>
+    <meta charset="UTF-8">
+    <title>Somsik Talk</title>
+    <link th:href="@{/css/bootstrap.min.css}"
+          href="../css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/style.css}" href="../css/style.css" rel="stylesheet">
+    <link th:href="@{/css/menu-style.css}" href="../css/menu-style.css" rel="stylesheet">
 </head>
+<header id="topnav">
+    <nav>
+        <a href="/"><img src="../resource/new_logo.svg" class="nav-logo"></a>
+        <ul class="nav-list">
+            <li><a href="/menu">이번주 학식</a></li>
+            <li><a href="/talk">솜식톡</a></li>
+            <li><a href="/board/items">솜보드</a></li>
+        </ul>
+    </nav>
+</header>
 <body>
-<div th:each="menu : ${menus}">
-    <!-- 날짜 출력 -->
-    <div th:text="${menu.date}"></div>
-    <!-- 메뉴 항목 출력 -->
-    <div th:each="item : ${menu.menuItems}">
-        <div th:text="${item.value}"></div>
+<article class="content-article">
+    <div th:each="menu : ${menus}" class="menu-element">
+        <div class="date-tit">
+            <img src="../resource/calendar.svg" class="date-logo">
+            <div class="date-text">
+                <div th:text="${menu.date} + '일의'" class="date-content-text"></div>
+                <div class="date-content-text">학식이에요.</div>
+            </div>
+        </div>
+        <div class="menu-detail-element">
+            <div th:each="item : ${menu.menuItems}">
+                <div th:text="${item.value}" class="menu-text"></div>
+            </div>
+        </div>
     </div>
-</div>
+</article>
+
 </body>
 </html>

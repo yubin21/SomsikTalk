@@ -1,30 +1,49 @@
 body {
     background-color: #E9EAF1;
+    word-break: keep-all;
+    word-wrap: break-word;
 }
 
 /* header */
 .logo {
-    width: 20%;
-    height: 20%;
+    padding-bottom: 1rem;
+    width: 360px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 /* nav */
-.logo {
-  float: left;
-  color: #fff;
-  font-size: 50px;
-  line-height: 50px;
-  transition: 0.7s all;
+.nav-logo {
+    width: 180px;
+    transition: 0.7s all;
 }
 
 /* title */
+.title-element {
+    padding-left: 6rem;
+    padding-top: 1rem;
+}
+.start-logo {
+    animation: float 7.5s ease-in-out infinite;
+    margin-top: 100px;
+    height: 30px;
+}
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-30px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
 .text_subTitle {
     color: #000;
     font-family: ChangwonDangamAsac;
-    font-size: 3.125rem;
+    font-size: 2.12rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -37,9 +56,6 @@ body {
     margin-bottom: 1.2em;
 }
 
-.card-title-name {
-
-}
 
 .card-title-profile {
     width: 20%;
@@ -68,7 +84,6 @@ body {
     .card-list {
         display: flex;
         flex-wrap: wrap;
-        margin: 0 -1rem;
     }
     .card-item {
         width: 50%;
@@ -77,7 +92,7 @@ body {
 }
 @media(min-width: 1200px){
     .card-item {
-        width: 33.33333%;
+        width: 20%;
     }
 }
 
@@ -89,23 +104,8 @@ body {
   border: 1px solid black;
   border-radius: 2rem;
   overflow: hidden;
-  margin: 100px auto;
+  margin: 20px 10px;
   transition: all 0.3s cubic-bezier(0.42, 0.0, 0.58, 1.0);
-}
-
-/*#box * {
-  padding: 10px;
-}*/
-
-
-.btn_y {
-    width: 23.25rem;
-    height: 5.1875rem;
-    flex-shrink: 0;
-    border-radius: 3.4375rem;
-    border: 2px solid #000;
-    background: #FFFF54;
-    box-shadow: 5px 5px 0px 0px #000;
 }
 
 /* font id */
@@ -123,4 +123,59 @@ body {
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+}
+
+/* nav bar */
+nav {
+    padding-left: 22px;
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+}
+/* 스타일을 적용할 네비게이션 바의 클래스 */
+.nav-list {
+    font-family: pretendard;
+    margin: 37px 0px 0px 0px;
+}
+
+/* 네비게이션 바의 리스트 항목 스타일 */
+.nav-list li {
+    display: inline; /* 가로로 배치 */
+    margin-right: 40px; /* 각 항목 사이의 간격 조절 */
+}
+
+/* 링크 스타일 */
+.nav-list li a {
+    text-decoration: none; /* 링크 밑줄 제거 */
+    color: #333; /* 텍스트 색상 설정 */
+    font-weight: bold; /* 글꼴 굵기 설정 */
+}
+
+/* 링크 호버 효과 */
+.nav-list li a:hover {
+    color: #007bff; /* 호버 시 텍스트 색상 변경 */
+}
+
+/* bg img */
+.bg-img {
+    position: fixed;
+    right: -13rem;
+    transform: translate(0, -50%) scale(0.8); /* 세로 중간 정렬 */
+}
+
+.index-img-left {
+    margin-top: -665px;
+    padding-right: 20px;
+}
+.index-img-right {
+    margin-top: -200px;
+    margin-bottom: 50px;
+}
+
+h2 {
+    font-family: ChangwonDangamAsac;
+}
+
+.form-sub-text {
+    font-family: pretendard;
 }

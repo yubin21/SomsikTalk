@@ -1,0 +1,11 @@
+body {
+    background-color: #E9EAF1;
+    word-break: keep-all;
+    word-wrap: break-word;
+}
+add-title {
+    font-family: Pretendard;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+}
