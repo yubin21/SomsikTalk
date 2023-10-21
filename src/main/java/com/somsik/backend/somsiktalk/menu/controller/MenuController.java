@@ -12,7 +12,6 @@ import java.util.List;
 
 @Slf4j
 @Controller
-@RequestMapping("/somsiktalk")
 @RequiredArgsConstructor
 public class MenuController {
 
@@ -22,7 +21,7 @@ public class MenuController {
     public String GetMenu(Model model) throws JsonProcessingException {
         List<Menu> menus = menuService.getMenu();
         model.addAttribute("menus", menus);
-        return "menu"; // menu.html 파일을 매핑
+        return "menu";
     }
 
 }
