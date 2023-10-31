@@ -29,7 +29,8 @@
 
     <div class="form-sub-text">
         <label for="itemId">솜talk ID</label>
-        <input type="text" id="itemId" name="itemId" class="form-control" value="1" th:value="${item.id}" readonly>
+<!--        <input type="text" id="itemId" name="itemId" class="form-control" value="1" th:value="${item.isPresent() ? item.get().somId : ''}" readonly>-->
+        <input type="text" id="itemId" name="itemId" class="form-control" value="1" th:value="${item.somId}" readonly>
     </div>
     <div></div>
     <div>
@@ -43,7 +44,7 @@
         <div class="col">
             <button class="w-100 btn btn-primary btn-lg"
                     onclick="location.href='editForm.html'"
-                    th:onclick="|location.href='@{/board/items/{itemId}/edit(itemId=${item.id})}'|"
+                    th:onclick="|location.href='@{/board/items/{itemId}/edit(itemId=${item.somId})}'|"
                     type="button">솜talk 수정</button>
         </div>
         <div class="col">

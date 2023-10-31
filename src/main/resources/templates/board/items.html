@@ -36,7 +36,7 @@
         <li id="box" class="card-item" th:each="item : ${items}">
         <span class="card-title">
             <img class="card-title-profile" src="../resource/profile.svg">
-            <span class="card-title-name" id="font-default-bold" th:text="${item.id + '번째 솜 talk'}">회원id</span>
+            <span class="card-title-name" id="font-default-bold" th:text="${item.somId + '번째 솜 talk'}">솜 id</span>
         </span>
             <div class="card-desc" id="font-default-regular">
                 <p th:text="${item.content}"></p>

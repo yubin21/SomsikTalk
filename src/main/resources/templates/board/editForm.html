@@ -32,7 +32,7 @@
     <form action="item.html" th:action th:object="${item}" method="post">
         <div>
             <label for="id">솜talk ID</label>
-            <input type="text" id="id" name="id" class="form-control" th:field="*{id}" readonly>
+            <input type="text" id="id" name="id" class="form-control" th:field="*{somId}" readonly>
         </div>
         <div>
             <label for="content">건의 내용</label>
@@ -59,7 +59,7 @@
             <div class="col">
                 <button class="w-100 btn btn-secondary btn-lg"
                         onclick="location.href='item.html'"
-                        th:onclick="|location.href='@{/board/items/{itemId}(itemId=${item.id})}'|"
+                        th:onclick="|location.href='@{/board/items/{itemId}(itemId=${item.somId})}'|"
                         type="button">솜보드로 가기</button>
             </div>
         </div>

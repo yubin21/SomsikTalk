@@ -13,7 +13,7 @@ public class HomeController {
 
     @GetMapping("/talk")
     public String redirectToTalk() {
-        return "somsiktalk.html";
+        return "somsiktalk";
     }
 }
 
