@@ -10,20 +10,12 @@ import java.util.List;
 @Service
 public class ItemServiceImpl implements ItemService {
     private final ItemRepository itemRepository;
-    private long sequence = 0L;
-//    private long sequence;
-
-//    @Autowired
-//    public ItemServiceImpl(ItemRepository itemRepository) {
-//        this.itemRepository = itemRepository;
-//        String maxId = String.valueOf(itemRepository.findMaxSomId());
-//        Long maxSomId = Long.parseLong(maxId);
-//        sequence = (maxSomId != null) ? maxSomId : 0L;
-//    }
+    private final SequenceGeneratorService sequenceGeneratorService;
 
     @Autowired
-    public ItemServiceImpl(ItemRepository itemRepository) {
+    public ItemServiceImpl(ItemRepository itemRepository, SequenceGeneratorService sequenceGeneratorService) {
         this.itemRepository = itemRepository;
+        this.sequenceGeneratorService = sequenceGeneratorService;
     }
 
     @Override
@@ -43,8 +35,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public Item saveItem(Item item) {
-//        sequence = itemRepository.findMaxSomId();
-        item.setSomId(++sequence);
+        item.setSomId(sequenceGeneratorService.generateSequence(Item.SEQUENCE_NAME));
         return itemRepository.save(item);
     }
 
